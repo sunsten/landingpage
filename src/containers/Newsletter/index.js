@@ -81,17 +81,39 @@ const Aside = styled.aside`
 `
 
 const FormFrame = styled.div`
+	width: 60%;
 	button,
-	input,
-	select,
-	textarea {
-		font-family: inherit;
-		font-size: 100%;
+	input {
+		font-family: calibreMedium;
+		font-size: 1.3em;
+	}
+
+	input {
+		margin: 1%;
+		border: 1px solid red;
+		padding: 1.2vw 0.8vw 0.8vw 0.8vw;
+		background: #f2f2f2;
+	}
+
+	.half {
+		width: 48%;
+	}
+
+	.whole {
+		width: 100%;
 	}
 
 	.form {
-		border: 1px solid green;
 		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.submitButton {
+		width: 30%;
+		padding: 1.2vw 0.8vw 0.8vw 0.8vw;
+		border: none;
+		margin: 1%;
+		background: #ffffff;
 	}
 `
 
@@ -120,15 +142,13 @@ const Newsletter = () => {
 					}}
 					render={({ errors, status, touched, isSubmitting }) => (
 						<Form className="form">
-							<div>
-								<Field type="text" className="error" name="social.facebook" />
-								<ErrorMessage name="social.facebook" component="div" />
-								<Field type="text" name="email" />
-								<ErrorMessage name="email" component="div" />
-							</div>
-							<Field type="email" name="email" />
+							<Field type="text" className="half" name="social.facebook" placeholder="Name" />
+							<ErrorMessage name="social.facebook" component="div" />
+							<Field type="text" className="half" name="company" placeholder="Company" />
 							<ErrorMessage name="email" component="div" />
-							<button type="submit" disabled={isSubmitting}>
+							<Field type="email" className="whole" name="email" placeholder="Email" />
+							<ErrorMessage name="email" component="div" />
+							<button type="submit" className="submitButton" disabled={isSubmitting}>
 								Submit
 							</button>
 						</Form>
