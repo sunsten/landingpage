@@ -28,7 +28,8 @@
     "react-helmet": "^5.2.1",
     "react-markdown": "^4.0.8",
     "react-scroll": "^1.7.11",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "prettier": "^1.17.0"

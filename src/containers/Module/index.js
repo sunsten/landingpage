@@ -10,16 +10,17 @@ const Line = styled.hr`
 	border-top: 1px solid black;
 	position: relative;
 	left: -${props => props.theme.sideBorderDesktop}vw;
-	/* margin-bottom: 8vw; */
+
+	@media screen and (min-width: 1600px) {
+		left: -${props => props.theme.sideBorderDesktop * 2}vw;
+	}
 
 	@media screen and (max-width: 1023px) {
 		left: -${props => props.theme.sideBorderTablet}vw;
-		/* margin-bottom: 18vw; */
 	}
 
 	@media screen and (max-width: 767px) {
 		left: -${props => props.theme.sideBorderMobile}vw;
-		/* margin-bottom: 18vw; */
 	}
 `
 

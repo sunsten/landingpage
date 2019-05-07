@@ -1,25 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import * as Yup from 'yup'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 
 const Main = styled.div`
-	height: 30vh;
 	background: #1b1917;
 	width: 100vw;
 	position: relative;
 	left: -${props => props.theme.sideBorderDesktop}vw;
-	padding: 10vw 0;
+	padding: 8% 0;
 	display: flex;
+
+	@media screen and (min-width: 1600px) {
+		left: -${props => props.theme.sideBorderDesktop * 2}vw;
+	}
 
 	@media screen and (max-width: 1023px) {
 		left: -${props => props.theme.sideBorderTablet}vw;
-		/* margin-bottom: 18vw; */
 	}
 
 	@media screen and (max-width: 767px) {
 		left: -${props => props.theme.sideBorderMobile}vw;
-		/* margin-bottom: 18vw; */
 	}
 `
 
@@ -29,13 +31,6 @@ const Aside = styled.aside`
 	justify-content: flex-end;
 	align-items: flex-start;
 	position: relative;
-
-	h3 {
-		font-size: 5em;
-		position: relative;
-		top: -0.3em;
-		letter-spacing: 0.08em;
-	}
 
 	h1 {
 		color: #fa0000;
@@ -50,13 +45,6 @@ const Aside = styled.aside`
 	@media screen and (max-width: 1023px) {
 		width: 6%;
 
-		h3 {
-			position: absolute;
-			font-size: 6em;
-			top: -1.5em;
-			letter-spacing: 0.08em;
-		}
-
 		h1 {
 			font-size: 2.1em;
 			top: 0.6em;
@@ -65,13 +53,6 @@ const Aside = styled.aside`
 
 	@media screen and (max-width: 767px) {
 		width: 9%;
-
-		h3 {
-			position: absolute;
-			font-size: 9em;
-			top: -1.5em;
-			letter-spacing: 0.08em;
-		}
 
 		h1 {
 			font-size: 4em;
@@ -82,16 +63,23 @@ const Aside = styled.aside`
 
 const FormFrame = styled.div`
 	width: 60%;
+	font-family: calibreMedium;
+
+	.title {
+		color: white;
+		font-size: 1.8em;
+		margin: 1%;
+	}
+
 	button,
 	input {
-		font-family: calibreMedium;
-		font-size: 1.3em;
+		font-size: 1.1em;
 	}
 
 	input {
 		margin: 1%;
-		border: 1px solid red;
-		padding: 1.2vw 0.8vw 0.8vw 0.8vw;
+		border: 1px solid #fa0000;
+		padding: 1.2vw 0.8vw 1.2vw 0.8vw;
 		background: #f2f2f2;
 	}
 
@@ -110,12 +98,73 @@ const FormFrame = styled.div`
 
 	.submitButton {
 		width: 30%;
-		padding: 1.2vw 0.8vw 0.8vw 0.8vw;
+		padding: 1.2vw 0.8vw 1.2vw 0.8vw;
 		border: none;
 		margin: 1%;
 		background: #ffffff;
+		cursor: pointer;
+	}
+
+	@media (hover) {
+		.submitButton:hover {
+			opacity: 0.5;
+		}
+	}
+
+	.error {
+		color: #fa0000;
+		width: 100%;
+		margin: 1%;
+	}
+
+	@media screen and (max-width: 1023px) {
+		font-size: 2.3em;
+		width: 80%;
+
+		.title {
+			margin: 0 4% 2% 4%;
+		}
+
+		input {
+			margin: 4%;
+			height: 2em;
+			padding: 0.3em 0.3em 0em 0.3em;
+		}
+
+		.submitButton {
+			width: 100%;
+			margin: 4%;
+			height: 2em;
+			padding: 0.3em 0.3em 0em 0.3em;
+		}
+
+		.half {
+			width: 100%;
+		}
+
+		.error {
+			margin: 4%;
+		}
+	}
+
+	@media screen and (max-width: 767px) {
+		font-size: 4.3em;
+
+		.title {
+			font-size: 1.4em;
+		}
 	}
 `
+
+const SignupSchema = Yup.object().shape({
+	name: Yup.string()
+		.min(2, 'Please enter a longer name')
+		.max(70, 'Please enter a shorter name')
+		.required('Please enter your name'),
+	email: Yup.string()
+		.email('Sorry, but the email format is invalid')
+		.required('Please enter your email')
+})
 
 const Newsletter = () => {
 	return (
@@ -124,8 +173,10 @@ const Newsletter = () => {
 				<h1>Contact</h1>
 			</Aside>
 			<FormFrame>
+				<div className="title">Join our mailing list</div>
 				<Formik
 					initialValues={{}}
+					validationSchema={SignupSchema}
 					onSubmit={(values, actions) => {
 						// MyImaginaryRestApiCall(user.id, values).then(
 						// 	updatedUser => {
@@ -142,15 +193,14 @@ const Newsletter = () => {
 					}}
 					render={({ errors, status, touched, isSubmitting }) => (
 						<Form className="form">
-							<Field type="text" className="half" name="social.facebook" placeholder="Name" />
-							<ErrorMessage name="social.facebook" component="div" />
+							<Field type="text" className="half" name="name" placeholder="Name" />
 							<Field type="text" className="half" name="company" placeholder="Company" />
-							<ErrorMessage name="email" component="div" />
 							<Field type="email" className="whole" name="email" placeholder="Email" />
-							<ErrorMessage name="email" component="div" />
 							<button type="submit" className="submitButton" disabled={isSubmitting}>
 								Submit
 							</button>
+							<ErrorMessage className="error" name="name" component="div" />
+							<ErrorMessage className="error" name="email" component="div" />
 						</Form>
 					)}
 				/>
