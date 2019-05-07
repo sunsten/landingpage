@@ -73,7 +73,7 @@ const Modules = () => {
 		<Main>
 			{modules &&
 				modules.map((module, index) => (
-					<Element key={index} name={'index' + index}>
+					<Element className="element" key={index} name={'index' + index}>
 						<Module module={module.node} markdowns={markdowns} index={index} />
 					</Element>
 				))}

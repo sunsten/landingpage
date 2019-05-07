@@ -7,14 +7,14 @@
 			{
 				"link": "motivation1.md",
 				"text": "As there are countless unsubstantiated opinion pieces on how the blockchain technologies will transform the fabric of human institutions, the platform lifts the lid off of managerial a organizational implications of these emerging technologies rather than their technicalities. An important added value of the platform is assessment and decision-making tools aiming to help individuals in positions of decision making make better, informed decisions.",
-				"fontSize": "1",
+				"fontSize": "1.3",
 				"fontFamily": "calibreSemibold",
 				"styleWidth": "100%"
 			},
 			{
 				"link": "motivation2.md",
 				"text": "We develop **data-driven** tools to paint a realistic **map **of the blockchain space.\n***",
-				"fontSize": "2",
+				"fontSize": "3",
 				"fontFamily": "pilatBold",
 				"styleWidth": "100%"
 			}
@@ -28,14 +28,14 @@
 			{
 				"link": "approach1.md",
 				"text": "Sunsten is a tool for managers to assess their blockchain needs. These tools can be seen as vehicles to generate new use cases, to elaborate on existing use cases, and to discuss various misuses of and misconceptions around blockchain technologies. Moreover, it details and discusses the contexts that favor blockchain technologies. Attempts to implement blockchains and some of the adoption barriers that may thwart commercialization efforts are highlighted and issues related to capturing the value that blockchains create are explored. Last but not least, possible business cases for various governance models and their potential to improve enhance existing business and create new business is part of this module.",
-				"fontSize": "1",
+				"fontSize": "1.3",
 				"fontFamily": "calibreMedium",
 				"styleWidth": "50%"
 			},
 			{
 				"link": "approach2.md",
 				"text": "\nThe tool provides a data driven overview of the blockchain space. Descriptive statistics are provided to paint a realistic picture of the size of the space, the various important players, promising ways forward.   \n  \nThe platform kickstarts topics on blockchain technologies and after enough of traction and interest has been conspired, other emerging technologies will be added. At its core, the platform will become a go-to place for rigorous and thought through knowledge on socio-economical aspects of these technologies.",
-				"fontSize": "1",
+				"fontSize": "1.3",
 				"fontFamily": "pilatBold",
 				"styleWidth": "50%"
 			}
@@ -49,14 +49,14 @@
 			{
 				"link": "outlook1.md",
 				"text": "An important added value of the platform is assessment and decision-making tools aiming to help individuals in positions of decision making make better, informed decisions.",
-				"fontSize": "1.3",
+				"fontSize": "1.6",
 				"fontFamily": "calibreSemibold",
 				"styleWidth": "50%"
 			},
 			{
 				"link": "outlook2.md",
 				"text": "To provide the necessary underlying knowledge to help them decide whether and which blockchain technologies would be of any use as the technology of choice and the foundation for products or services they aspire to introduce to the market",
-				"fontSize": "1",
+				"fontSize": "1.3",
 				"fontFamily": "pilatBold",
 				"styleWidth": "50%"
 			}

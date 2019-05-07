@@ -36,7 +36,7 @@ module.exports = {
 				display: `minimal-ui`,
 				icon: `src/images/sunsten-icon.png` // This path is relative to the root of the site.
 			}
-		},
+		}
 		// {
 		// 	resolve: 'gatsby-source-graphql',
 		// 	options: {
@@ -56,6 +56,6 @@ module.exports = {
 		// 		contentTypes: [`markdown`, `module`]
 		// 	}
 		// },
-		`gatsby-plugin-offline`
+		// `gatsby-plugin-offline`
 	]
 }

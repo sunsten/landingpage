@@ -76,11 +76,6 @@ const Navigation = styled.nav`
 	display: flex;
 	font-size: 1.5em;
 
-	.number {
-		position: relative;
-		top: -0.13em;
-	}
-
 	.navItem {
 		display: flex;
 		cursor: pointer;
@@ -105,7 +100,11 @@ const Navigation = styled.nav`
 		position: absolute;
 		right: ${props => props.theme.mainBorderMobile * 2}vw;
 		top: 24vw;
-		font-size: 2.5em;
+		font-size: 2.8em;
+
+		.navItem {
+			padding-left: 2vw;
+		}
 	}
 `
 
@@ -128,9 +127,9 @@ const Body = styled.div`
 
 	.title {
 		width: 80%;
-		font-size: 10vh;
+		font-size: 9vh;
 		padding: 4vw 0;
-		line-height: 1;
+		line-height: 1.15;
 		letter-spacing: 0.04em;
 	}
 
@@ -179,7 +178,7 @@ const Body = styled.div`
 	@media screen and (max-width: 1023px) {
 		.title {
 			width: 90%;
-			font-size: 8vh;
+			font-size: 7.5vh;
 			padding: 8vw 0;
 		}
 		.goToMoreText {

@@ -26,7 +26,7 @@ const Contact = styled.div`
 	hr {
 		width: 3vw;
 		border: 0;
-		border-top: 1px solid black;
+		border-top: 3px solid #fa0000;
 		margin: 1vw 0 1.5vw 0;
 	}
 
@@ -41,15 +41,18 @@ const Contact = styled.div`
 
 		hr {
 			width: 6vw;
+			margin: 2vw 0 3vw 0;
 		}
 	}
 
 	@media screen and (max-width: 767px) {
+		font-size: 3em;
 		width: 60%;
 		padding: 8vw 4vw;
 
 		hr {
 			width: 6vw;
+			margin: 3vw 0 4vw 0;
 		}
 	}
 `
@@ -64,13 +67,14 @@ const Information = styled.div`
 	}
 
 	@media screen and (max-width: 1023px) {
-		padding: ${props => props.theme.mainBorderTablet}vw ${props => props.theme.sideBorderTablet}vw;
+		padding: ${props => props.theme.mainBorderTablet * 2}vw ${props => props.theme.sideBorderTablet}vw;
 		font-size: 2.5em;
 	}
 
 	@media screen and (max-width: 767px) {
-		padding: ${props => props.theme.mainBorderMobile}vw ${props => props.theme.sideBorderMobile}vw;
+		padding: ${props => props.theme.mainBorderMobile * 2}vw ${props => props.theme.sideBorderMobile}vw;
 		width: 85%;
+		font-size: 3.5em;
 	}
 `
 

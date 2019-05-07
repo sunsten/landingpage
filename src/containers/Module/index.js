@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
 import TechnicalComponents from '../TechnicalComponents'
+import Newsletter from '../Newsletter'
 
 const Line = styled.hr`
 	width: 100vw;
@@ -9,31 +10,38 @@ const Line = styled.hr`
 	border-top: 1px solid black;
 	position: relative;
 	left: -${props => props.theme.sideBorderDesktop}vw;
-	margin-bottom: 8vw;
+	/* margin-bottom: 8vw; */
 
 	@media screen and (max-width: 1023px) {
 		left: -${props => props.theme.sideBorderTablet}vw;
-		margin-bottom: 18vw;
+		/* margin-bottom: 18vw; */
 	}
 
 	@media screen and (max-width: 767px) {
 		left: -${props => props.theme.sideBorderMobile}vw;
-		margin-bottom: 18vw;
+		/* margin-bottom: 18vw; */
 	}
 `
 
 const Frame = styled.div`
 	width: 100%;
 	display: flex;
-
-	&:first-child {
-		padding: 8vw 0;
-	}
+	padding: 8vw 0;
 
 	@media screen and (max-width: 1023px) {
+		padding: 15vw 0 8vw 0;
+
+		&:first-child {
+			padding: 10vw 0 18vw 0;
+		}
 	}
 
 	@media screen and (max-width: 767px) {
+		padding: 25vw 0 18vw 0;
+
+		&:first-child {
+			padding: 15vw 0 18vw 0;
+		}
 	}
 `
 
@@ -66,28 +74,30 @@ const Aside = styled.aside`
 
 		h3 {
 			position: absolute;
-			font-size: 5em;
-			top: -1.5em;
-			letter-spacing: 0.08em;
-		}
-
-		h1 {
-			font-size: 1.9em;
-		}
-	}
-
-	@media screen and (max-width: 767px) {
-		width: 6%;
-
-		h3 {
-			position: absolute;
 			font-size: 6em;
 			top: -1.5em;
 			letter-spacing: 0.08em;
 		}
 
 		h1 {
-			font-size: 3em;
+			font-size: 2.1em;
+			top: 0.6em;
+		}
+	}
+
+	@media screen and (max-width: 767px) {
+		width: 9%;
+
+		h3 {
+			position: absolute;
+			font-size: 9em;
+			top: -1.5em;
+			letter-spacing: 0.08em;
+		}
+
+		h1 {
+			font-size: 4em;
+			top: 0.5em;
 		}
 	}
 `
@@ -95,9 +105,14 @@ const Aside = styled.aside`
 const Article = styled.article`
 	width: 65%;
 	font-size: 1.3em;
+	line-height: 1.3;
 
 	& .markdown:not(:last-child) {
 		padding-bottom: 8vw;
+	}
+
+	.markDown {
+		font-size: 6em;
 	}
 
 	@media screen and (max-width: 1023px) {
@@ -123,7 +138,10 @@ const ContentItem = styled.div`
 	padding-right: 2vw;
 	font-family: ${props => props.styleFontFamily};
 	font-size: ${props => props.styleFontSize}vw;
-	padding-bottom: 5vw;
+
+	&:first-child {
+		padding-bottom: 5vw;
+	}
 
 	.markdown {
 		display: flex;
@@ -177,8 +195,13 @@ const ContentItem = styled.div`
 	}
 
 	@media screen and (max-width: 1023px) {
-		font-size: ${props => props.styleFontSize * 3}vw;
+		font-size: ${props => props.styleFontSize * 2}vw;
 		width: 100%;
+		line-height: 1.4;
+
+		&:first-child {
+			padding-bottom: 4vw;
+		}
 
 		.markdown {
 			flex-direction: column;
@@ -190,7 +213,7 @@ const ContentItem = styled.div`
 	}
 
 	@media screen and (max-width: 767px) {
-		font-size: ${props => props.styleFontSize * 4}vw;
+		font-size: ${props => props.styleFontSize * 3.5}vw;
 		width: 100%;
 
 		.markdown {
@@ -218,7 +241,6 @@ const ExtraContentFrame = styled.div`
 const ExtraContent = () => (
 	<ExtraContentFrame>
 		<TechnicalComponents />
-		{/* <hr /> */}
 	</ExtraContentFrame>
 )
 
@@ -266,6 +288,8 @@ const Module = ({ module, markdowns, index }) => {
 
 	return (
 		<Fragment>
+			{index !== 0 && <Line />}
+			{index == 2 && <Newsletter />}
 			{index !== 0 && <Line />}
 			<Frame key={index}>
 				<Aside>

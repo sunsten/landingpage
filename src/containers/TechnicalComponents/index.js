@@ -37,9 +37,15 @@ const Part = styled.div`
 		opacity: 0.8;
 	}
 
+	@media screen and (max-width: 1023px) {
+		.title {
+			font-size: 1.5em;
+		}
+	}
+
 	@media screen and (max-width: 767px) {
 		.title {
-			font-size: 2em;
+			font-size: 3.6em;
 		}
 	}
 `
@@ -68,11 +74,12 @@ const Components = styled.div`
 	}
 
 	@media screen and (max-width: 1023px) {
+		font-size: 1.4em;
 	}
 
 	@media screen and (max-width: 767px) {
 		flex-direction: column;
-		font-size: 1.8em;
+		font-size: 3.7em;
 
 		.titleFrame {
 			width: 100%;
