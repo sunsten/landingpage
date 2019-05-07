@@ -128,14 +128,14 @@ const FormFrame = styled.div`
 		input {
 			margin: 4%;
 			height: 2em;
-			padding: 0.3em 0.3em 0em 0.3em;
+			padding: 0.3em 0.3em 0.4em 0.3em;
 		}
 
 		.submitButton {
 			width: 100%;
 			margin: 4%;
 			height: 2em;
-			padding: 0.3em 0.3em 0em 0.3em;
+			padding: 0.3em 0.3em 0.4em 0.3em;
 		}
 
 		.half {

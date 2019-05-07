@@ -8,6 +8,7 @@ import { Element } from 'react-scroll'
 import Module from '../Module'
 
 const Main = styled.div`
+	overflow: hidden;
 	width: 100%;
 	padding: ${props => props.theme.mainBorderDesktop}vw ${props => props.theme.sideBorderDesktop}vw;
 
