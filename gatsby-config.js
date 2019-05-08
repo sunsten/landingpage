@@ -42,27 +42,7 @@ module.exports = {
 			options: {
 				endpoint: 'https://sunsten.us20.list-manage.com/subscribe/post?u=8c0166a2b5fb2b760d94e39c0&amp;id=4ddbcd67e0'
 			}
-		}
-
-		// {
-		// 	resolve: 'gatsby-source-graphql',
-		// 	options: {
-		// 		// This type will contain remote schema Query type
-		// 		typeName: 'STRAPI',
-		// 		// This is field under which it's accessible
-		// 		fieldName: 'strapi',
-		// 		// Url to query froms
-		// 		url: 'http://localhost:1338/graphql'
-		// 	}
-		// },
-		// {
-		// 	resolve: `gatsby-source-strapi`,
-		// 	options: {
-		// 		apiURL: `http://localhost:1338`,
-		// 		queryLimit: 100, // Default to 100
-		// 		contentTypes: [`markdown`, `module`]
-		// 	}
-		// },
-		// `gatsby-plugin-offline`
+		},
+		`gatsby-plugin-offline`
 	]
 }
