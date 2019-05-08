@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Arrow from './arrow.svg'
+import { ReactComponent as Arrow } from './arrow_between.svg'
 
 const Main = styled.div`
 	width: 100%;
@@ -88,29 +88,61 @@ const Components = styled.div`
 	}
 `
 
+const ArrowFrame = styled.div`
+	width: 95%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	svg {
+		height: 1.8em;
+		width: 1.5em;
+	}
+
+	svg:last-child {
+		transform: rotate(180deg);
+	}
+
+	@media screen and (max-width: 1023px) {
+		svg {
+			height: 2.8em;
+			width: 2.5em;
+		}
+	}
+
+	@media screen and (max-width: 767px) {
+		padding: 1vw 0;
+		svg {
+			height: 6em;
+			width: 4em;
+		}
+	}
+`
+
 const TechnicalComponents = () => {
 	return (
 		<Main>
 			<Frame>
 				<Part>
-					<div className="title">TECHICAL COMPONENTS</div>
+					<div className="title">TECHNICAL COMPONENTS</div>
 					<hr />
 					<Components>
 						<div className="titleFrame">
-							<div>Consensul Model</div>
+							<div>Consensus Model</div>
 						</div>
 						<div className="titleFrame">
-							<div>Consensul Rules</div>
+							<div>Consensus Rules</div>
 						</div>
 						<div className="titleFrame">
 							<div>Database</div>
 						</div>
 					</Components>
 				</Part>
-
+				<ArrowFrame>
+					<Arrow />
+					<Arrow />
+				</ArrowFrame>
 				<Part>
-					<div className="title">LOGICAL LAYER</div>
-					<hr />
 					<Components>
 						<div className="titleFrame">
 							<div>Administrative</div>
@@ -122,6 +154,8 @@ const TechnicalComponents = () => {
 							<div>Incentive</div>
 						</div>
 					</Components>
+					<hr />
+					<div className="title">LOGICAL LAYER</div>
 				</Part>
 			</Frame>
 		</Main>

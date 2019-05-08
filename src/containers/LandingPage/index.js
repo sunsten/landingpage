@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import { Link } from 'react-scroll'
 import { ReactComponent as Arrow } from './arrowLandingpage.svg'
-import { ReactComponent as Logo } from './logo.svg'
+import { ReactComponent as Logo } from './sunsten_logo.svg'
 import { ReactComponent as Menu } from './burgerMenu.svg'
 import { Mobile, TabletMin } from '../../styles/mediaQuery'
 
@@ -75,6 +75,7 @@ const Header = styled.header`
 const Navigation = styled.nav`
 	display: flex;
 	font-size: 1.5em;
+	color: #1b1917;
 
 	.navItem {
 		display: flex;

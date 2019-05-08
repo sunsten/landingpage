@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import * as Yup from 'yup'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
+
+import addToMailchimp from 'gatsby-plugin-mailchimp'
 
 const Main = styled.div`
 	background: #1b1917;
@@ -26,11 +28,27 @@ const Main = styled.div`
 `
 
 const Aside = styled.aside`
-	width: 20%;
+	width: 20vw;
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-start;
 	position: relative;
+
+	margin-left: ${props => props.theme.sideBorderDesktop}%;
+
+	@media screen and (min-width: 1600px) {
+		margin-left: ${props => props.theme.sideBorderDesktop * 2}vw;
+	}
+
+	@media screen and (max-width: 1023px) {
+		margin-left: ${props => props.theme.sideBorderTablet}vw;
+		justify-content: flex-start;
+	}
+
+	@media screen and (max-width: 767px) {
+		margin-left: ${props => props.theme.sideBorderMobile}vw;
+		justify-content: flex-start;
+	}
 
 	h1 {
 		color: #fa0000;
@@ -43,20 +61,20 @@ const Aside = styled.aside`
 	}
 
 	@media screen and (max-width: 1023px) {
-		width: 6%;
+		width: 6vw;
 
 		h1 {
 			font-size: 2.1em;
-			top: 0.6em;
+			top: 0.25em;
 		}
 	}
 
 	@media screen and (max-width: 767px) {
-		width: 9%;
+		width: 9vw;
 
 		h1 {
 			font-size: 4em;
-			top: 0.5em;
+			top: 0.2em;
 		}
 	}
 `
@@ -74,12 +92,13 @@ const FormFrame = styled.div`
 	button,
 	input {
 		font-size: 1.1em;
+		font-family: calibreMedium;
 	}
 
 	input {
 		margin: 1%;
 		border: 1px solid #fa0000;
-		padding: 1.2vw 0.8vw 1.2vw 0.8vw;
+		padding: 1.2vw 0.8vw 0.8vw 0.8vw;
 		background: #f2f2f2;
 	}
 
@@ -98,7 +117,7 @@ const FormFrame = styled.div`
 
 	.submitButton {
 		width: 30%;
-		padding: 1.2vw 0.8vw 1.2vw 0.8vw;
+		padding: 1.2vw 0.8vw 0.8vw 0.8vw;
 		border: none;
 		margin: 1%;
 		background: #ffffff;
@@ -128,14 +147,14 @@ const FormFrame = styled.div`
 		input {
 			margin: 4%;
 			height: 2em;
-			padding: 0.3em 0.3em 0.4em 0.3em;
+			padding: 0.3em 0.3em 0em 0.3em;
 		}
 
 		.submitButton {
 			width: 100%;
 			margin: 4%;
 			height: 2em;
-			padding: 0.3em 0.3em 0.4em 0.3em;
+			padding: 0.3em 0.3em 0em 0.3em;
 		}
 
 		.half {
@@ -156,17 +175,31 @@ const FormFrame = styled.div`
 	}
 `
 
+const FormSent = styled.div`
+	width: 100%;
+	color: #fa0000;
+	font-size: 1.1em;
+	font-family: calibreMedium;
+	margin: 1%;
+
+	@media screen and (max-width: 1023px) {
+		margin: 4%;
+	}
+`
+
 const SignupSchema = Yup.object().shape({
 	name: Yup.string()
-		.min(2, 'Please enter a longer name')
+		.min(1, 'Please enter a longer name')
 		.max(70, 'Please enter a shorter name')
 		.required('Please enter your name'),
 	email: Yup.string()
-		.email('Sorry, but the email format is invalid')
+		.email('Please enter a valid email')
 		.required('Please enter your email')
 })
 
 const Newsletter = () => {
+	const [signedUp, setSignedUp] = useState(false)
+
 	return (
 		<Main>
 			<Aside>
@@ -175,32 +208,30 @@ const Newsletter = () => {
 			<FormFrame>
 				<div className="title">Join our mailing list</div>
 				<Formik
-					initialValues={{}}
 					validationSchema={SignupSchema}
 					onSubmit={(values, actions) => {
-						// MyImaginaryRestApiCall(user.id, values).then(
-						// 	updatedUser => {
-						// 		actions.setSubmitting(false)
-						// 		updateUser(updatedUser)
-						// 		onClose()
-						// 	},
-						// 	error => {
-						// 		actions.setSubmitting(false)
-						// 		actions.setErrors(transformMyRestApiErrorsToAnObject(error))
-						// 		actions.setStatus({ msg: 'Set some arbitrary status or data' })
-						// 	}
-						// )
+						const email = values.email
+						const listFields = { NAME: values.name, COMPANY: values.company }
+						addToMailchimp(email, listFields)
+							.then(data => {
+								setSignedUp(true)
+								actions.setSubmitting(false)
+								actions.resetForm({})
+								actions.setStatus({ success: true })
+							})
+							.catch(() => {})
 					}}
-					render={({ errors, status, touched, isSubmitting }) => (
+					render={({ isSubmitting, values }) => (
 						<Form className="form">
-							<Field type="text" className="half" name="name" placeholder="Name" />
-							<Field type="text" className="half" name="company" placeholder="Company" />
-							<Field type="email" className="whole" name="email" placeholder="Email" />
+							<Field value={values.name || ''} type="text" className="half" name="name" placeholder="Name" />
+							<Field value={values.company || ''} type="text" className="half" name="company" placeholder="Company" />
+							<Field value={values.email || ''} type="email" className="whole" name="email" placeholder="Email" />
 							<button type="submit" className="submitButton" disabled={isSubmitting}>
 								Submit
 							</button>
 							<ErrorMessage className="error" name="name" component="div" />
 							<ErrorMessage className="error" name="email" component="div" />
+							{signedUp && <FormSent>Thank you for your interest</FormSent>}
 						</Form>
 					)}
 				/>

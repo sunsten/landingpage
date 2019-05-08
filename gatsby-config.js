@@ -36,7 +36,14 @@ module.exports = {
 				display: `minimal-ui`,
 				icon: `src/images/sunsten-icon.png` // This path is relative to the root of the site.
 			}
+		},
+		{
+			resolve: 'gatsby-plugin-mailchimp',
+			options: {
+				endpoint: 'https://sunsten.us20.list-manage.com/subscribe/post?u=8c0166a2b5fb2b760d94e39c0&amp;id=4ddbcd67e0'
+			}
 		}
+
 		// {
 		// 	resolve: 'gatsby-source-graphql',
 		// 	options: {

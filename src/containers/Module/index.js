@@ -28,6 +28,7 @@ const Frame = styled.div`
 	width: 100%;
 	display: flex;
 	padding: 8vw 0;
+	color: #1b1917;
 
 	@media screen and (max-width: 1023px) {
 		padding: 15vw 0 8vw 0;
@@ -47,7 +48,7 @@ const Frame = styled.div`
 `
 
 const Aside = styled.aside`
-	width: 20%;
+	width: 20vw;
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
@@ -71,7 +72,7 @@ const Aside = styled.aside`
 	}
 
 	@media screen and (max-width: 1023px) {
-		width: 6%;
+		width: 6vw;
 
 		h3 {
 			position: absolute;
@@ -87,7 +88,7 @@ const Aside = styled.aside`
 	}
 
 	@media screen and (max-width: 767px) {
-		width: 9%;
+		width: 9vw;
 
 		h3 {
 			position: absolute;
@@ -157,14 +158,6 @@ const ContentItem = styled.div`
 	strong {
 		-webkit-text-fill-color: white;
 		-webkit-text-stroke: 1px black;
-	}
-
-	a {
-		border-radius: 1.2em;
-		background: black;
-		color: white;
-		font-size: 0.6em;
-		padding: 0.4em 1em;
 	}
 
 	em {
@@ -290,8 +283,7 @@ const Module = ({ module, markdowns, index }) => {
 	return (
 		<Fragment>
 			{index !== 0 && <Line />}
-			{index == 2 && <Newsletter />}
-			{index !== 0 && <Line />}
+			{/* {index !== 0 && <Line />} */}
 			<Frame key={index}>
 				<Aside>
 					<h3>{('0' + (index + 1)).slice(-2)}</h3>
@@ -304,6 +296,7 @@ const Module = ({ module, markdowns, index }) => {
 						})}
 				</Article>
 			</Frame>
+			{index == 2 && <Newsletter />}
 		</Fragment>
 	)
 }

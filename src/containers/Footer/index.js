@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
+import ImprintPrivacy from '../ImprintPrivacy'
+
 const Main = styled.div`
+	color: #1b1917;
 	width: 100vw;
 
 	hr {
@@ -78,7 +81,20 @@ const Information = styled.div`
 	}
 `
 
-const Footer = () => {
+const MoreInfo = styled.span`
+	cursor: pointer;
+
+	@media (hover) {
+		:hover {
+			opacity: 0.5;
+		}
+	}
+`
+
+const Footer = ({ privacy, imprint }) => {
+	const [showPrivacy, setShowPrivacy] = useState(false)
+	const [showImprint, setShowImprint] = useState(false)
+
 	return (
 		<Main>
 			<hr />
@@ -86,14 +102,29 @@ const Footer = () => {
 				<h4>Contact</h4>
 				<hr />
 				<div>
-					Want to test what we make, invest, or simply share your thoughts and ideas feel free to get in touch at{' '}
-					<a href="mailto: info@sunset.com">info@sunset.com</a>
+					Interested in a demo of the tools or simply in sharing your thoughts and ideas, send us an email at
+					<a href="mailto: info@sunset.com"> info@sunset.com</a>
 				</div>
 			</Contact>
 			<Information>
-				<span>Privacy</span>
-				<span>Imprint</span>
+				<MoreInfo
+					onClick={() => {
+						setShowPrivacy(prevState => !prevState)
+						setShowImprint(false)
+					}}
+				>
+					Privacy
+				</MoreInfo>
+				<MoreInfo
+					onClick={() => {
+						setShowImprint(prevState => !prevState)
+						setShowPrivacy(false)
+					}}
+				>
+					Impressum
+				</MoreInfo>
 			</Information>
+			<ImprintPrivacy imprint={imprint} privacy={privacy} showImprint={showImprint} showPrivacy={showPrivacy} />
 		</Main>
 	)
 }

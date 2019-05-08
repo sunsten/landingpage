@@ -7,7 +7,10 @@ import Layout from '../containers/Layout'
 import Modules from '../containers/Modules'
 import Footer from '../containers/Footer'
 
-const Home = () => {
+const Home = ({ data }) => {
+	const imprint = data.allMarkdownRemark.edges.find(file => file.node.frontmatter.name.name === 'imprint').node.html
+	const privacy = data.allMarkdownRemark.edges.find(file => file.node.frontmatter.name.name === 'privacy').node.html
+
 	return (
 		<Layout>
 			<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -16,8 +19,30 @@ const Home = () => {
 			</Helmet> */}
 			<LandingPage />
 			<Modules />
-			<Footer />
+			<Footer imprint={imprint} privacy={privacy} />
 		</Layout>
 	)
 }
+
+export const query = graphql`
+	query {
+		allMarkdownRemark(filter: { frontmatter: { name: { name: { in: ["imprint", "privacy"] } } } }) {
+			edges {
+				node {
+					id
+					html
+					frontmatter {
+						title
+						name {
+							id
+							base
+							name
+						}
+					}
+				}
+			}
+		}
+	}
+`
+
 export default Home

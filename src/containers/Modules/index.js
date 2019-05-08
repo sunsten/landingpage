@@ -10,18 +10,22 @@ import Module from '../Module'
 const Main = styled.div`
 	overflow: hidden;
 	width: 100%;
-	padding: ${props => props.theme.mainBorderDesktop}vw ${props => props.theme.sideBorderDesktop}vw;
+	padding: ${props => props.theme.mainBorderDesktop}vw ${props => props.theme.sideBorderDesktop}vw 0
+		${props => props.theme.sideBorderDesktop}vw;
 
 	@media screen and (min-width: 1600px) {
-		padding: ${props => props.theme.mainBorderDesktop}vw ${props => props.theme.sideBorderDesktop * 2}vw;
+		padding: ${props => props.theme.mainBorderDesktop}vw ${props => props.theme.sideBorderDesktop * 2}vw 0
+			${props => props.theme.sideBorderDesktop * 2}vw;
 	}
 
 	@media screen and (max-width: 1023px) {
-		padding: ${props => props.theme.mainBorderTablet * 2}vw ${props => props.theme.sideBorderTablet}vw;
+		padding: ${props => props.theme.mainBorderTablet * 2}vw ${props => props.theme.sideBorderTablet}vw 0
+			${props => props.theme.sideBorderTablet}vw;
 	}
 
 	@media screen and (max-width: 767px) {
-		padding: ${props => props.theme.mainBorderMobile * 2}vw ${props => props.theme.sideBorderMobile}vw;
+		padding: ${props => props.theme.mainBorderMobile * 2}vw ${props => props.theme.sideBorderMobile}vw 0
+			${props => props.theme.sideBorderMobile}vw;
 	}
 `
 
