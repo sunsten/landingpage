@@ -28,13 +28,13 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `gatsby-starter-default`,
-				short_name: `starter`,
+				name: `SUNSTEN.ORG`,
+				short_name: `Sunsten`,
 				start_url: `/`,
-				background_color: `#663399`,
-				theme_color: `#663399`,
+				background_color: `white`,
+				theme_color: `black`,
 				display: `minimal-ui`,
-				icon: `src/images/sunsten-icon.png` // This path is relative to the root of the site.
+				icon: `src/images/sunsten-icon.png`
 			}
 		},
 		{
