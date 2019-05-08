@@ -143,6 +143,8 @@ const TechnicalComponents = () => {
 					<Arrow />
 				</ArrowFrame>
 				<Part>
+					<div className="title">LOGICAL LAYER</div>
+					<hr />
 					<Components>
 						<div className="titleFrame">
 							<div>Administrative</div>
@@ -154,8 +156,6 @@ const TechnicalComponents = () => {
 							<div>Incentive</div>
 						</div>
 					</Components>
-					<hr />
-					<div className="title">LOGICAL LAYER</div>
 				</Part>
 			</Frame>
 		</Main>
