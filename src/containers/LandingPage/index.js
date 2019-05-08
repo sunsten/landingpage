@@ -75,7 +75,6 @@ const Header = styled.header`
 const Navigation = styled.nav`
 	display: flex;
 	font-size: 1.5em;
-	color: #1b1917;
 
 	.navItem {
 		display: flex;

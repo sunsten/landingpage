@@ -56,7 +56,7 @@ const Aside = styled.aside`
 		font-size: 1.5em;
 		padding-right: 1vw;
 		position: relative;
-		top: 0.3em;
+		top: 0.15em;
 		letter-spacing: 0.1em;
 	}
 
@@ -86,7 +86,7 @@ const FormFrame = styled.div`
 	.title {
 		color: white;
 		font-size: 1.8em;
-		margin: 1%;
+		margin-left: 1%;
 	}
 
 	button,
@@ -97,7 +97,7 @@ const FormFrame = styled.div`
 
 	input {
 		margin: 1%;
-		border: 1px solid #fa0000;
+		border: 1.5px solid #fa0000;
 		padding: 1.2vw 0.8vw 0.8vw 0.8vw;
 		background: #f2f2f2;
 	}
