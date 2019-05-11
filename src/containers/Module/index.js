@@ -55,7 +55,7 @@ const Aside = styled.aside`
 	position: relative;
 
 	h3 {
-		font-size: 5em;
+		font-size: 5.5em;
 		position: relative;
 		top: -0.3em;
 		letter-spacing: 0.08em;
@@ -65,10 +65,10 @@ const Aside = styled.aside`
 		color: #fa0000;
 		writing-mode: vertical-rl;
 		font-size: 1.5em;
-		padding-right: 1vw;
+		padding-right: 1.1vw;
 		position: relative;
 		top: 0.3em;
-		letter-spacing: 0.1em;
+		/* letter-spacing: 0.05em; */
 	}
 
 	@media screen and (max-width: 1023px) {
@@ -76,7 +76,7 @@ const Aside = styled.aside`
 
 		h3 {
 			position: absolute;
-			font-size: 6em;
+			font-size: 6.6em;
 			top: -1.5em;
 			letter-spacing: 0.08em;
 		}
@@ -92,7 +92,7 @@ const Aside = styled.aside`
 
 		h3 {
 			position: absolute;
-			font-size: 9em;
+			font-size: 9.5em;
 			top: -1.5em;
 			letter-spacing: 0.08em;
 		}
@@ -158,6 +158,7 @@ const ContentItem = styled.div`
 	strong {
 		-webkit-text-fill-color: white;
 		-webkit-text-stroke: 1px black;
+		font-weight: normal;
 	}
 
 	em {

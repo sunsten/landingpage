@@ -63,7 +63,7 @@ const Components = styled.div`
 		padding: 0.5em;
 		display: flex;
 		align-items: flex-end;
-		width: 30%;
+		width: 33%;
 		text-align: center;
 		line-height: 1.42;
 		height: 3em;

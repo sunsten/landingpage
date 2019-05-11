@@ -74,7 +74,7 @@ const Header = styled.header`
 
 const Navigation = styled.nav`
 	display: flex;
-	font-size: 1.5em;
+	font-size: 1.2em;
 
 	.navItem {
 		display: flex;
@@ -130,7 +130,7 @@ const Body = styled.div`
 		font-size: 9vh;
 		padding: 4vw 0;
 		line-height: 1.15;
-		letter-spacing: 0.04em;
+		letter-spacing: 0em;
 	}
 
 	.goToMoreFrame {

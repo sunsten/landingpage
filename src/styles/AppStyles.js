@@ -73,7 +73,7 @@ h2 {
 h3 {
   font-family: "pilatBold";
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px black;
+  -webkit-text-stroke: 2px black;
 }
 
 *, *:before, *:after {
