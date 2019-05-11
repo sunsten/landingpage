@@ -79,6 +79,7 @@ const Aside = styled.aside`
 			font-size: 6.6em;
 			top: -1.5em;
 			letter-spacing: 0.08em;
+			-webkit-text-stroke: 1px black;
 		}
 
 		h1 {

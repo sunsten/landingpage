@@ -181,6 +181,11 @@ const Body = styled.div`
 			font-size: 7.5vh;
 			padding: 8vw 0;
 		}
+
+		.title h3 {
+			-webkit-text-stroke: 1px black;
+		}
+
 		.goToMoreText {
 			font-size: 2em;
 		}
