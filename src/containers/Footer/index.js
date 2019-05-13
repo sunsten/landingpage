@@ -103,7 +103,7 @@ const Footer = ({ privacy, imprint }) => {
 				<hr />
 				<div>
 					Interested in a demo of the tools or simply in sharing your thoughts and ideas, send us an email at
-					<a href="mailto: info@sunset.com"> info@sunset.com</a>
+					<a href="mailto: info@sunsten.org"> info@sunsten.org</a>
 				</div>
 			</Contact>
 			<Information>
