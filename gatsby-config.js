@@ -43,6 +43,13 @@ module.exports = {
 				endpoint: 'https://sunsten.us20.list-manage.com/subscribe/post?u=8c0166a2b5fb2b760d94e39c0&amp;id=4ddbcd67e0'
 			}
 		},
+		{
+			resolve: `gatsby-plugin-google-analytics`,
+			options: {
+				// replace "UA-XXXXXXXXX-X" with your own Tracking ID
+				trackingId: 'UA-140093496-1'
+			}
+		},
 		`gatsby-plugin-offline`
 	]
 }
