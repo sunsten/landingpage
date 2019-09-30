@@ -1,0 +1,9 @@
+.cache
+node_modules
+public
+.git
+.gitignore
+.env
+*/bin
+*/obj
+

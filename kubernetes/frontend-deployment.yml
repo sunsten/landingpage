@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sunsten-frontend
+  namespace: sunsten
+  labels:
+    app: sunsten-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sunsten-frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: sunsten-frontend
+    spec:
+      containers:
+      - image: n0rsc0des/sunsten-frontend
+        name: sunsten-app
+        ports:
+        - containerPort: 80
+      restartPolicy: Always
